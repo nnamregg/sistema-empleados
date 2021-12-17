@@ -1,3 +1,5 @@
 **/venv
 .vscode
+uploads/
+!uploads/.keep
 __pycache__
