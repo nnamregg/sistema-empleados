@@ -95,6 +95,46 @@ def delete(id):
     queryMySql(sql, datos)
     
     return redirect('/')
+
+@app.route('/modify/<int:id>')
+def modify(id): 
+    sql = "SELECT * FROM empleados WHERE id=(%s);"
+    datos = (id,)
+    empleado = queryMySql(sql, datos, "one")
+    
+    return render_template('/empleados/edit.html', empleado=empleado)
+
+@app.route('/update', methods=["POST"])
+def update():
+    _nombre = request.form['txtNombre']
+    _correo = request.form['txtCorreo']
+    _foto = request.files['txtFoto']
+    id = request.form['txtId']
+    
+    if _foto.filename != '':
+        now = datetime.now()
+        tiempo = now.strftime("%Y%H%M%S")
+        nuevoNombreFoto = tiempo + '_' + _foto.filename
+        _foto.save("src/uploads/" + nuevoNombreFoto)
+    
+        sql = "SELECT foto FROM empleados WHERE id=(%s);"
+        datos = (id,)
+        nombreFoto = queryMySql(sql, datos, "one")
+        
+        try:
+            os.remove(os.path.join(app.config['UPLOADS'], nombreFoto['foto']))
+        except:
+            pass
+        
+        sql = "UPDATE empleados SET foto=(%s) WHERE id=(%s);"
+        datos = (nuevoNombreFoto, id)
+        queryMySql(sql, datos)
+
+    sql = "UPDATE empleados SET nombre=(%s), correo=(%s) WHERE id=(%s);"
+    datos = (_nombre, _correo, id)
+    queryMySql(sql, datos)
+    
+    return redirect('/')
     
 if __name__ == '__main__':
     app.run(debug=True)
