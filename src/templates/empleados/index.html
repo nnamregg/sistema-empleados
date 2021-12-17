@@ -1,1 +1,34 @@
-<h1>Hola mundo!</h1>
+<table class="table table-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for empleado in empleados %}
+        <tr>
+            <td>{{empleado.id}}</td>
+            <td>
+                <img
+                    width="100"
+                    src="userpic/{{empleado.foto}}"
+                    alt="Foto de perfil">
+            </td>
+            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.correo}}</td>
+            <td>
+                <a
+                    class="btn btn-warning"
+                    href="/modify/{{empleado.id}}">Editar</a>
+                <a
+                    id="btnBorrar"
+                    class="btn btn-danger"
+                    href="/delete/{{empleado.id}}">Borrar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
