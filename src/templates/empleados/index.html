@@ -5,7 +5,7 @@
             <th>#</th>
             <th>Foto</th>
             <th>Nombre</th>
-            <th>Correo</th>
+            <th colspan="2">Correo</th>
         </tr>
     </thead>
     <tbody>
@@ -22,12 +22,20 @@
             <td>{{empleado.correo}}</td>
             <td>
                 <a
-                    class="btn btn-warning"
-                    href="/modify/{{empleado.id}}">Editar</a>
+                    class="btn btn-warning btn-sm"
+                    href="/modify/{{empleado.id}}">
+                    <span class="material-icons" aria-label="Editar">
+                        edit
+                    </span>
+                </a>
                 <a
                     id="btnBorrar"
-                    class="btn btn-danger"
-                    href="/delete/{{empleado.id}}">Borrar</a>
+                    class="btn btn-danger btn-sm"
+                    href="/delete/{{empleado.id}}">
+                    <span class="material-icons" aria-label="Eliminar">
+                        delete
+                    </span>
+                </a>
             </td>
         </tr>
         {% endfor %}
