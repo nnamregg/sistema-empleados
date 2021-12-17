@@ -79,5 +79,22 @@ def alta_empleado():
         
         return redirect('/')
     
+@app.route('/delete/<int:id>')
+def delete(id):
+    sql = "SELECT foto FROM empleados WHERE id=(%s);"
+    datos = (id,)
+    nombreFoto = queryMySql(sql, datos, "one")
+    
+    try:
+        os.remove(os.path.join(app.config['UPLOADS'], nombreFoto['foto']))
+    except:
+        pass
+    
+    sql = "DELETE FROM empleados WHERE id=(%s);"
+    datos = (id,)
+    queryMySql(sql, datos)
+    
+    return redirect('/')
+    
 if __name__ == '__main__':
     app.run(debug=True)
