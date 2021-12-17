@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, send_from_
 from pymysql.cursors import DictCursor
 from flaskext.mysql import MySQL
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 mysql = MySQL()
@@ -11,6 +12,9 @@ app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_DB'] = 'empleados'
 app.config['SECRET_KEY'] = 'codoacodo' # Seteo de cookie
+
+UPLOADS = os.path.join('src/uploads/')
+app.config['UPLOADS'] = UPLOADS # Guardamos la ruta como un valor en la app
 
 mysql.init_app(app)
 
@@ -32,6 +36,10 @@ def queryMySql(query, data = (), tipoDeRetorno = 'none'):
         conn.commit()
     
     return registro
+
+@app.route('/userpic/<path:nombreFoto>')
+def uploads(nombreFoto):
+    return send_from_directory(os.path.join('uploads'), nombreFoto)
 
 @app.route('/')
 def index():  
