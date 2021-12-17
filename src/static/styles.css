@@ -1,0 +1,12 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+.table {
+    margin-top: 50px;
+}
+td {
+    vertical-align: middle !important;
+}
+.btn {
+    margin: 1em;
+}
