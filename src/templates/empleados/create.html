@@ -1,25 +1,31 @@
 {% include 'header.html' %}
 <form method="POST" action="/empleado/alta" enctype="multipart/form-data">
     <div class="card">
-        <div class="card-header">Alta empleado</div>
+        <h5 class="card-header py-3">Alta empleado</h5>
         <div class="card-body">
-            <p class="card-text">
-                <div class="form-group">
-                    <label for="txtNombre">Nombre: </label>
-                    <input type="text" name="txtNombre" id="txtNombre">
+            <p class="card-text"></p>
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="txtNombre" id="txtNombre" placeholder="Nombre">
+                            <label for="txtNombre">Nombre</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="txtCorreo" id="txtCorreo" placeholder="Correo">
+                            <label for="txtCorreo">Correo</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="txtCorreo">Correo: </label>
-                    <input type="email" name="txtCorreo" id="txtCorreo">
-                </div>
-                <div class="form-group">
-                    <label for="txtFoto">Foto de perfil: </label>
-                    <input type="file" name="txtFoto" id="txtFoto">
-                </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
+                    <label for="txtFoto" class="form-label">Foto de perfil: </label>
+                    <input class="form-control form-control-sm" type="file" name="txtFoto" id="txtFoto">
+                  </div>
+                <div class="form-group mb-3">
                     <input class="btn btn-success" type="submit" value="Agregar nuevo empleado">
                 </div>
-            </p>
+            
         </div>
     </div>
 </form>

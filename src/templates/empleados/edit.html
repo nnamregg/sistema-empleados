@@ -1,31 +1,38 @@
 {% include 'header.html' %}
 <form method="POST" action="/update" enctype="multipart/form-data">
     <div class="card">
-        <div class="card-header">
-            Modificar empleado
-        </div>
+        <h5 class="card-header py-3">Modificar empleado</h5>
         <div class="card-body">
-            <p class="card-text">
+            <p class="card-text"></p>
                 <input hidden type="text" type="text" value="{{empleado.id}}" name="txtId" id="txtId">
-                <div class="form-group">
-                    <label for="txtNombre">Nombre: </label>
-                    <input type="text" name="txtNombre" id="txtNombre" value="{{empleado.nombre}}">
+
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div class="form-group mb-3">
+                            <label for="txtNombre">Nombre: </label>
+                            <input type="text" class="form-control" name="txtNombre" id="txtNombre" value="{{empleado.nombre}}">
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" name="txtCorreo" id="txtCorreo" placeholder="Correo">
+                            <label for="txtCorreo">Correo</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="txtCorreo">Correo: </label>
-                    <input type="email" name="txtCorreo" id="txtCorreo" value="{{empleado.correo}}">
-                </div>
-                <div class="form-group">
-                    <label for="txtFoto">Foto de perfil: </label>
-                    <img class="img-thumbnail" width="100" alt="Foto de perfil"
+
+                <div class="form-group mb-3">
+                    <label for="txtFoto" class="form-label">Foto de perfil: </label>
+                    <br>
+                    <img class="img-thumbnail mb-3" width="100" alt="Foto de perfil"
                     src="{{ url_for('uploads', nombreFoto=empleado.foto) }}">
-                    <input type="file" name="txtFoto" id="txtFoto">
+                    <input class="form-control form-control-sm" type="file" name="txtFoto" id="txtFoto">
                 </div>
                 <div class="form-group">
                     <input class="btn btn-success" type="submit" value="Modificar empleado" />
                     <a class="btn btn-primary" href="{{ url_for('index') }}">Regresar</a>
                 </div>
-            </p>
+            
         </div>
     </div>
 </form>
