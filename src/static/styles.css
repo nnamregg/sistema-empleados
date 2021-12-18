@@ -12,6 +12,9 @@ form {
     padding: 50px;
     font-size: .9em;
 }
+.form-control:focus {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.07) inset, 0px 0px 8px rgba(0, 49, 83, 0.35);
+}
 .table {
     margin-top: 50px;
     box-shadow: 0 0 5px rgba(30, 30, 30, 0.7);
@@ -26,4 +29,17 @@ form {
 .btn {
     margin: .5em;
     vertical-align: middle !important;
+}
+.modal-title {
+    color: #fff;
+}
+.modal-body {
+    color: rgb(30, 30, 30);
+    font-weight: 400;
+}
+.modal-footer {
+    justify-content: space-evenly;
+}
+.modal-footer .btn {
+    width: 45%;
 }
