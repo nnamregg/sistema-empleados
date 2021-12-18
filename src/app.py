@@ -59,19 +59,22 @@ def alta_empleado():
         _correo = request.form['txtCorreo']
         _foto = request.files['txtFoto']
         
-        if _nombre == '' or _correo == '':
-            flash('El nombre y el correo son obligatorios.')
+        if _nombre == '' or _correo == '' or _foto.filename == '':
+            flash('Todos los campos son obligatorios.')
             return redirect(url_for('alta_empleado'))
         
         now = datetime.now()
         tiempo = now.strftime("%Y%H%M%S")
         
-        if _foto.filename != '':
-            nuevoNombreFoto = tiempo + '_' + _foto.filename
-            _foto.save("src/uploads/" + nuevoNombreFoto)
-        else:
-            flash('La foto es obligatoria.')
-            return redirect(url_for('alta_empleado'))
+        nuevoNombreFoto = tiempo + '_' + _foto.filename
+        _foto.save("src/uploads/" + nuevoNombreFoto)
+        
+        # if _foto.filename != '':
+        #     nuevoNombreFoto = tiempo + '_' + _foto.filename
+        #     _foto.save("src/uploads/" + nuevoNombreFoto)
+        # else:
+        #     flash('La foto es obligatoria.')
+        #     return redirect(url_for('alta_empleado'))
         
         sql = "INSERT INTO empleados (nombre, correo, foto) values (%s, %s, %s);"
         datos = (_nombre, _correo, nuevoNombreFoto)
