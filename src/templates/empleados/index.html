@@ -1,28 +1,31 @@
 {% include 'header.html' %}
 <table class="table table-dark">
-    <thead class="thead-dark">
-        <tr>
-            <th>#</th>
-            <th>Foto</th>
-            <th>Nombre</th>
-            <th colspan="2">Correo</th>
+    <thead>
+        <tr class="table-light fs-5 text-dark">
+            <th class="text-center">#</th>
+            <th>FOTO</th>
+            <th>NOMBRE</th>
+            <th colspan="2">CORREO</th>
         </tr>
     </thead>
     <tbody>
         {% for empleado in empleados %}
         <tr>
-            <td>{{empleado.id}}</td>
+            <td class="text-center">{{empleado.id}}</td>
             <td>
                 <img
+                    class="profile-pic"
                     width="100"
                     src="userpic/{{empleado.foto}}"
                     alt="Foto de perfil">
             </td>
             <td>{{empleado.nombre}}</td>
-            <td>{{empleado.correo}}</td>
             <td>
+                <a class="link-no-style" href="mailto:{{empleado.correo}}">{{empleado.correo}}</a>
+            </td>
+            <td class="td-btns">
                 <a
-                    class="btn btn-warning btn-sm"
+                    class="btn btn-outline-warning btn-sm p-1"
                     href="/modify/{{empleado.id}}">
                     <span class="material-icons" aria-label="Editar">
                         edit
@@ -30,7 +33,7 @@
                 </a>
                 <a
                     id="btnBorrar"
-                    class="btn btn-danger btn-sm"
+                    class="btn btn-outline-danger btn-sm p-1"
                     href="/delete/{{empleado.id}}">
                     <span class="material-icons" aria-label="Eliminar">
                         delete
