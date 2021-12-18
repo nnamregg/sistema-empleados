@@ -1,12 +1,35 @@
 * {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+.material-icons {
+    vertical-align: middle;
 }
 .table {
     margin-top: 50px;
+    box-shadow: 0 0 5px rgba(30, 30, 30, 0.7);
 }
 td {
     vertical-align: middle !important;
 }
+tbody {
+    font-size: .9em;
+    font-weight: 300;
+}
+form {
+    padding: 50px;
+    font-size: .9em;
+}
+.profile-pic {
+    margin: 10px 0;
+}
+.link-no-style {
+    text-decoration: none;
+    color: inherit;
+}
+.td-btns {
+    text-align: center;
+}
 .btn {
-    margin: 1em;
+    margin: .5em;
+    vertical-align: middle !important;
 }
