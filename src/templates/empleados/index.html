@@ -21,13 +21,13 @@
             </td>
             <td>{{empleado.nombre}}</td>
             <td>
-                <a class="link-no-style" href="mailto:{{empleado.correo}}">{{empleado.correo}}</a>
+                <a class="mail-link" href="mailto:{{empleado.correo}}">{{empleado.correo}}</a>
             </td>
-            <td class="td-btns">
+            <td class="text-center">
                 <a
                     class="btn btn-outline-warning btn-sm p-1"
                     href="/modify/{{empleado.id}}">
-                    <span class="material-icons" aria-label="Editar">
+                    <span class="material-icons align-middle">
                         edit
                     </span>
                 </a>
@@ -35,7 +35,7 @@
                     id="btnBorrar"
                     class="btn btn-outline-danger btn-sm p-1"
                     href="/delete/{{empleado.id}}">
-                    <span class="material-icons" aria-label="Eliminar">
+                    <span class="material-icons align-middle">
                         delete
                     </span>
                 </a>

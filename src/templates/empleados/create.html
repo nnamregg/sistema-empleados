@@ -1,9 +1,10 @@
 {% include 'header.html' %}
+
 <form method="POST" action="/empleado/alta" enctype="multipart/form-data">
     <div class="card">
         <h5 class="card-header py-3">Alta empleado</h5>
         <div class="card-body">
-            <p class="card-text"></p>
+            <!-- <p class="card-text"></p> -->
                 <div class="row g-2">
                     <div class="col-md">
                         <div class="form-floating mb-3">
@@ -21,7 +22,20 @@
                 <div class="form-group mb-3">
                     <label for="txtFoto" class="form-label">Foto de perfil: </label>
                     <input class="form-control form-control-sm" type="file" name="txtFoto" id="txtFoto">
-                  </div>
+                </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {% for msg in messages %}
+                                <span class="material-icons-round align-middle">
+                                    warning
+                                </span>
+                                {{ msg }}
+                            {% endfor %}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endif %}
+                {% endwith %}
                 <div class="form-group mb-3">
                     <input class="btn btn-success" type="submit" value="Agregar nuevo empleado">
                 </div>

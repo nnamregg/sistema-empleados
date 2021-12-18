@@ -9,14 +9,15 @@
                 <div class="row g-2">
                     <div class="col-md">
                         <div class="form-group mb-3">
-                            <label for="txtNombre">Nombre: </label>
+                            <label class="mb-2" for="txtNombre">Nombre: </label>
                             <input type="text" class="form-control" name="txtNombre" id="txtNombre" value="{{empleado.nombre}}">
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-group mb-3">
-                            <input type="text" class="form-control" name="txtCorreo" id="txtCorreo" placeholder="Correo">
-                            <label for="txtCorreo">Correo</label>
+                            <label class="mb-2" for="txtCorreo">Correo: </label>
+                            <input type="text" class="form-control" name="txtCorreo" id="txtCorreo" value="{{empleado.correo}}">
+                            
                         </div>
                     </div>
                 </div>
